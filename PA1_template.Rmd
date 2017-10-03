@@ -2,11 +2,13 @@
 title: "Reproducible Research: Peer Assessment 1"
 author: "Abhijeet Kunwar"
 date: "10/2/2017"
-output: html_document
+output: 
+        html_document:
+                keep_md: true
 ---
 
 ```{r opts, echo=FALSE}
-knitr::opts_chunk$set(fig.path = "PA1_template_2_files/figure-html/")
+knitr::opts_chunk$set(fig.path = "PA1_template_2_files/figure-htmls/")
 ```
 
 ## Loading and preprocessing the data
@@ -93,4 +95,3 @@ pruned_act_data$steps <- as.numeric(pruned_act_data$steps)
 pruned_act_data_steps <- aggregate(list(steps=pruned_act_data$steps), by=list(interval=pruned_act_data$interval, daytype=pruned_act_data$daytype), FUN = mean)
 ggplot(pruned_act_data_steps, aes(interval, steps)) + geom_line(colour="blue") + facet_grid(.~daytype)+ ggtitle("Average Steps in an interval")
 ```
-
